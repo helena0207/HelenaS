@@ -1,13 +1,17 @@
 
 public class MethodExample {
 	public static void main(String args[]) {
-		int arr[]= {10,20,30,40,50,60,70};
+		int arr[]=  new int[0];
 		
 		Numbers obj=new Numbers(arr);
 		int total= obj.getTotal();
-		int average=obj.getAverage();
-		
 		System.out.println("합계="+total);
-		System.out.println("평균="+average);
+		try {
+			int average=obj.getAverage();
+			System.out.println("평균="+average);
+		}
+		catch(java.lang.ArithmeticException e) {
+			System.out.println("평균을 계산하는 도중 에러가 발생했습니다.");
+		}
 	}
 }
