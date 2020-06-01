@@ -1,5 +1,5 @@
 interface Lendable {
-	abstract void checkOut(String aborrower, String date);//대출한다.
+	abstract void checkOut(String aborrower, String date) throws Exception;//대출한다.
 	abstract void checkIn();//반납한다.
 }
 //#####################################
@@ -28,9 +28,9 @@ class SeparateVolume implements Lendable{
 		this.bookTitle=bookTitle;
 		this.writer=writer;
 	}
-	public void checkOut(String borrower, String date) {//public : 인터페이스를 구현할때 반드시 써야 하는 키워드
+	public void checkOut(String borrower, String date) throws Exception{//public : 인터페이스를 구현할때 반드시 써야 하는 키워드
 		if(state !=0) {
-			return;
+			throw new Exception("* 대출불가 :"+ bookTitle);
 		}
 		this.borrower=borrower;
 		this.checkOutDate=date;
