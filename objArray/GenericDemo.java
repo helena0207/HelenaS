@@ -21,12 +21,15 @@ class Person{
 	}
 }
 */
-class Person<T,S>{ //int, char 같은 데이터 타입으로 지정하면 안된다. 객체 변수를 사용해야함.
+class Person<T, S>{ //int, char 같은 데이터 타입으로 지정하면 안된다. 객체 변수를 사용해야함.
 	public T info;
 	public S id;
 	Person(T info, S id){
 		this.info=info;
 		this.id=id;
+	}
+	public<U> void printInfo(U info) {
+		System.out.println(info);
 	}
 }
 class EmployeeInfo{
@@ -58,8 +61,13 @@ public class GenericDemo {
 		EmployeeInfo ei= (EmployeeInfo)p1.info;
 		System.out.println(ei.rank);
 */
-		Integer id= new Integer(1);
-		Person<EmployeeInfo, Integer> p1=new Person<EmployeeInfo, Integer>(new EmployeeInfo(1),id);
+		EmployeeInfo e=new EmployeeInfo(1);
+		Integer id= new Integer(10);
+		Person<EmployeeInfo, Integer> p1=new Person<EmployeeInfo, Integer>(e, id);
+				
+		System.out.println(p1.info.rank);
+		System.out.println(p1.id.intValue());
+		p1.<EmployeeInfo>printInfo(e);
 		
 		//Person<EmployeeInfo, int> p1=new Person<EmployeeInfo, int>(new EmployeeInfo(1),1);
 	}
