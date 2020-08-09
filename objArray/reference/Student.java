@@ -1,6 +1,7 @@
 package reference;
 	public class Student{
-	    int studentId;
+		private static int serialNum=1000;
+	    private int studentId;
 	    String studentName;
 
 	    Subject korea;
@@ -9,6 +10,8 @@ package reference;
 	    public Student(int id, String name){
 	        studentId=id;
 	        studentName=name;
+	        serialNum++;
+	        studentId=serialNum;
 
 	        korea=new Subject();
 	        math=new Subject();
@@ -25,4 +28,14 @@ package reference;
 	        int total=korea.score + math.score;
 	        System.out.println(studentName +"학생의 총점은 "+total+"입니다.");
 	    }
+	    public int getStudentId(){
+	    	return studentId;
+	    }
+		public static int getSerialNum() {
+			return serialNum;
+		}
+		public static void setSerialNum(int serialNum) {
+			Student.serialNum = serialNum;
+		}
+	    
 	}

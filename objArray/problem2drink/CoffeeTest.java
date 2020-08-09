@@ -10,8 +10,8 @@ public class CoffeeTest {
 		StarCoffee starcoffee=new StarCoffee();
 		BeanCoffee beancoffee=new BeanCoffee();
 		
-		workerKim.buyStarCoffee(starcoffee, 4000);
-		workerLee.buyBeanCoffee(beancoffee, 4500);
+		workerKim.buyStarCoffee(starcoffee, Menu.STARCOFFEE);
+		workerLee.buyBeanCoffee(beancoffee, Menu.BEANCOFFEE);
 
 	}
 
